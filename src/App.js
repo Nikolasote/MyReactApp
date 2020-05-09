@@ -1,11 +1,17 @@
 import React from 'react';
-import './App.css';
+import './main.css';
+import Header from "./components/Header"
+import Description from "./components/Description"
+import SearchTable from "./components/SearchTable"
+import Footer from "./components/Footer"
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello, World!</h1>
-      <p>hopefully this works</p>
+      <Header />
+      <Description />
+      <SearchTable />
+      <Footer />
     </div>
   );
 }
