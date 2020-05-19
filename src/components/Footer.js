@@ -3,7 +3,7 @@ import '../main.css'
 
 function Footer() {
     return (
-        <div>
+        <div className="col-12 text-center">
             <p>designed by Niklas Böcking</p>
             <a href="github.com">view code</a>
         </div>

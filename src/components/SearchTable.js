@@ -10,11 +10,13 @@ class SearchTable extends React.Component {
             isloading: true,
             userInput: "",
             namesList: [],
-            detailsList: [],
+            movieDetails: {},
+            showDetails: false,
             error: null
         }
         this.handleSearchInput = this.handleSearchInput.bind(this)
         this.outputNamesList = this.outputNamesList.bind(this)
+        //this.outputMovieDetails = this.outputMovieDetails.bind(this)
 
     }
 
@@ -23,29 +25,21 @@ class SearchTable extends React.Component {
         this.setState({
             userInput: input
         })
-        console.log(this.state.userInput)
     }
 
-    async outputNamesList(event) {
-        console.log(this.state.isloading)
+    outputNamesList(event) {
+        //console.log(this.state.isloading)
         event.preventDefault()
-        const queryString = "https://cors-anywhere.herokuapp.com/https://tastedive.com/api/similar?k=368207-Universi-YVVZ2Q9P&q=" + this.state.userInput + "&type=movies&limit=3&info=0"
+        const queryString = "https://cors-anywhere.herokuapp.com/https://tastedive.com/api/similar?k=368207-Universi-YVVZ2Q9P&q=" + this.state.userInput + "&type=movies&limit=3&info=1"
         console.log(queryString)
-        fetch(queryString)
-            .then(response => response.json())
+        fetch(queryString).then(response => response.json())
             .then(data => {
-                const movieList = data.Similar.Results
                 this.setState(
                     {
-                        namesList: movieList
+                        namesList: data.Similar.Results
                     })
             })
-            .then(() => {
-                this.state.namesList.forEach(element => console.log(element.Name))
-            })
-
     }
-
 
 
     render() {
@@ -54,18 +48,21 @@ class SearchTable extends React.Component {
             return <p style={{ color: "red" }}>{this.state.error.message}</p>
         }
 
-        const movieNames = this.state.namesList.map(name => {
-            return <MovieItem key={name.yID} item={name} />
+        const movieNames = this.state.namesList.map(item => {
+            return <MovieItem key={item.yID} item={item} />
         })
 
         return (
-            <div>
-                <InsertForm handleChange={this.handleSearchInput} input={this.state.userInput} handleSubmit={this.outputNamesList} />
-                <h2>Your recommended movies:</h2>
-                <ul>
+            <div className="row">
+                <InsertForm handleChange={this.handleSearchInput} handleSubmit={this.outputNamesList} input={this.state.userInput} />
+                <div className="col-12 mt-3">
+                    <h2 className="text-center">Recommended Movies</h2>
+                </div>
+                <div>
                     {movieNames}
-                </ul>
-            </div >
+                </div>
+            </div>
+
         )
     }
 }

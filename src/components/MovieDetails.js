@@ -5,9 +5,9 @@ function MovieDetails(props) {
 
 
     return (
-        <li>
-            <h3>{props.voteCount}</h3>
-        </li>
+        <div>
+            <h3>Vote Average: {props.details.vote_average}</h3>
+        </div>
     )
 }
 
