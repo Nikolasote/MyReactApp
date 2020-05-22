@@ -30,7 +30,7 @@ class SearchTable extends React.Component {
     outputNamesList(event) {
         //console.log(this.state.isloading)
         event.preventDefault()
-        const queryString = "https://cors-anywhere.herokuapp.com/https://tastedive.com/api/similar?k=368207-Universi-YVVZ2Q9P&q=" + this.state.userInput + "&type=movies&limit=3&info=1"
+        const queryString = "https://cors-anywhere.herokuapp.com/https://tastedive.com/api/similar?k=368207-Universi-YVVZ2Q9P&q=" + this.state.userInput + "&type=movies&limit=10&info=1"
         console.log(queryString)
         fetch(queryString).then(response => response.json())
             .then(data => {
@@ -55,10 +55,7 @@ class SearchTable extends React.Component {
         return (
             <div className="row">
                 <InsertForm handleChange={this.handleSearchInput} handleSubmit={this.outputNamesList} input={this.state.userInput} />
-                <div className="col-12 mt-3">
-                    <h2 className="text-center">Recommended Movies</h2>
-                </div>
-                <div>
+                <div className="col-12 mt-3 movie-list-container">
                     {movieNames}
                 </div>
             </div>
