@@ -1,10 +1,11 @@
 import React from "react"
 import '../main.css'
 
-function MovieDetails(props) {
+function ItemDetails(props) {
 
 
-    let posterImg = 'https://image.tmdb.org/t/p/w500' + props.tmdbDetails.poster_path
+    let posterImg = 'https://image.tmdb.org/t/p/w500'
+        + props.tmdbDetails.poster_path
 
     return (
         <div className="details-container col-12">
@@ -39,4 +40,4 @@ function MovieDetails(props) {
     )
 }
 
-export default MovieDetails
+export default ItemDetails

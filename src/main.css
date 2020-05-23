@@ -78,20 +78,14 @@ background: linear-gradient(90deg, rgba(12,0,62,1) 0%, rgba(32,22,148,1) 100%);
 }
 
 #text-input {
-  border-style: none; 
-  border: solid 2px white;
-  border-radius: 10px;
+  border-style: none;
+  border-bottom: solid 2px white;
   font-size: 1.6rem;
   background: transparent;
   outline: none;
-  width: 70%;
+  width: 100%;
 }
 
-textarea:focus, input:focus {
-    color: #ffffff;
-    font-family: 'Oswald', sans-serif;
-    text-transform: uppercase;
-}
 
 input, select, textarea{
     color: #ffffff;
@@ -101,20 +95,52 @@ input, select, textarea{
 }
 
 ::placeholder {
-  color: gray;
+  color:rgb(211,211,211,0.3);
   font-family: 'Oswald', sans-serif;
   text-transform: uppercase;
 }
 
 #description {
   padding: none;
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 8%;
+  margin-right: 8%;
 }
 
-#submit-button {
-  background: black; 
+.count-btn {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.4rem;
+  color: white;
+  background: transparent;
+  border-style: none; 
+  margin: 10px;
 }
+
+.count-btn:focus, .count-btn:hover {
+  transform: scale(1.2);
+  outline: none;
+}
+
+
+#count-output {
+  color: rgba(32,22,148,1); 
+}
+
+.submit-btn {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  color: white;
+  background: #00b8db;
+  border-style: none;
+  border-radius: 10px;
+  box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.2)
+}
+
+.submit-btn:focus, .submit-btn:hover {
+  transform: scale(1.01);
+  outline: none;
+}
+
 
 .footer-container {
   font-size: 1rem;
